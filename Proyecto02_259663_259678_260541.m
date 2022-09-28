@@ -14,8 +14,15 @@ clear; %% Limpiar memoria
 close all; %% Cerrar ventanas abiertas
 clc; %% Limpiar consola
 
+% Rutas Michell
 RutaIEntrada = 'C:\Users\alegv\Documents\Escuela\Tópico I\Proyecto\Proyecto2-ComposicionYTransformacion\entradas\'; %% Ruta de entrada (lectura) de las imágenes
 RutaISalida = 'C:\Users\alegv\Documents\Escuela\Tópico I\Proyecto\Proyecto2-ComposicionYTransformacion\salidas\'; %% Ruta de salida (escritura) de las imágenes
+% Rutas Daniel
+%RutaIEntrada = '\'; %% Ruta de entrada (lectura) de las imágenes
+%RutaISalida = '\'; %% Ruta de salida (escritura) de las imágenes
+% Rutas Andrés
+%RutaIEntrada = '\'; %% Ruta de entrada (lectura) de las imágenes
+%RutaISalida = '\'; %% Ruta de salida (escritura) de las imágenes
 
 I1 = imread(strcat(RutaIEntrada, 'Imagen1.jpg')); %% Imagen 1
 I2 = imread(strcat(RutaIEntrada, 'Imagen2.jpg')); %% Imagen 2
