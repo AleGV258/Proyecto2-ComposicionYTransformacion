@@ -10,14 +10,41 @@
 %%   - León Paulin Daniel - 260541                                                   %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-function [G, IBand1, IBand2, IBand3] = SecuenciaTransformaciones(I, sX, sY, angulo, k)
+function [ISinRellenarZoom, IRellenadaZoom, ISinRellenarRotar, IRellenadaRotar, ISinRellenarPerspectiva, IRellenadaPerspectiva] = SecuenciaTransformaciones(I, sX, sY, angulo, k)
     %% Llamada de las funciones en el orden que le toco al equipo
-    tic; [GZoom, IBand1] = zoomSxSy(I, sX, sY); toc; %% 1. Primero se le aplica Zoom Sx Sy
-    tic; [GRotar, IBand2] = rotar(GZoom, angulo); toc; %% 2. Segundo se le aplica Rotación
-    tic; [GPerspectiva, IBand3] = perspectiva(GRotar, k); toc; %% 3. Tercero se le aplica Perspectiva
+    %% Primero Zoom
+    tic;
+    [ISinRellenarZoom, IBand1] = zoomSxSy(I, sX, sY); %% 1. Primero se le aplica Zoom Sx Sy
+    fprintf('Imagen con Zoom sin Rellenar - ');
+    toc; tic;
+    [IRellenadaZoom, BandN1, noPixelesZoom] = rellenarImg(ISinRellenarZoom, IBand1, 1);
+    fprintf('Imagen con Zoom Rellenada - ');
+    toc; fprintf('\n');
     
-    G = uint8(GPerspectiva);
-    IBand1 = uint8(IBand1);
-    IBand2 = uint8(IBand2);
-    IBand3 = uint8(IBand3);
+    %% Segundo Rotar
+    tic;
+    [ISinRellenarRotar, IBand2] = rotar(IRellenadaZoom, angulo); %% 2. Segundo se le aplica Rotación
+    fprintf('Imagen con Rotar sin Rellenar - ');
+    toc; tic;
+    [IRellenadaRotar, BandN2, noPixelesRotar] = rellenarImg(ISinRellenarRotar, IBand2, 1);
+    fprintf('Imagen con Rotar Rellenada - ');
+    toc; fprintf('\n');
+    
+    %% Tercero Perspectiva
+    tic;
+    [ISinRellenarPerspectiva, IBand3] = perspectiva(IRellenadaRotar, k); %% 3. Tercero se le aplica Perspectiva
+    fprintf('Imagen con Perspectiva sin Rellenar - ');
+    toc; tic;
+    [IRellenadaPerspectiva, BandN3, noPixelesPerspectiva] = rellenarImg(ISinRellenarPerspectiva, IBand3, 1);
+    fprintf('Imagen con Rotar Rellenada - ');
+    toc; fprintf('\n\n');
+    
+    ISinRellenarZoom = uint8(ISinRellenarZoom);
+    IRellenadaZoom = uint8(IRellenadaZoom);
+    ISinRellenarRotar = uint8(ISinRellenarRotar);
+    IRellenadaRotar = uint8(IRellenadaRotar);
+    ISinRellenarPerspectiva = uint8(ISinRellenarPerspectiva);
+    IRellenadaPerspectiva = uint8(IRellenadaPerspectiva);
 end
+
+
