@@ -14,15 +14,8 @@ clear; %% Limpiar memoria
 close all; %% Cerrar ventanas abiertas
 clc; %% Limpiar consola
 
-% Rutas Michell
-%RutaIEntrada = 'C:\Users\alegv\Documents\Escuela\Tópico I\Proyecto\Proyecto2-ComposicionYTransformacion\entradas\'; %% Ruta de entrada (lectura) de las imágenes
-%RutaISalida = 'C:\Users\alegv\Documents\Escuela\Tópico I\Proyecto\Proyecto2-ComposicionYTransformacion\salidas\'; %% Ruta de salida (escritura) de las imágenes
-% Rutas Daniel
-RutaIEntrada = 'C:\Users\danie\Desktop\Topico 1\Proyecto2\Proyecto2-ComposicionYTransformacion\entradas\'; %% Ruta de entrada (lectura) de las imágenes
-RutaISalida = 'C:\Users\danie\Desktop\Topico 1\Proyecto2\Proyecto2-ComposicionYTransformacion\salidas\'; %% Ruta de salida (escritura) de las imágenes
-% Rutas Andrés
-%RutaIEntrada = '\'; %% Ruta de entrada (lectura) de las imágenes
-%RutaISalida = '\'; %% Ruta de salida (escritura) de las imágenes
+RutaIEntrada = 'C:\\'; %% Ruta de entrada (lectura) de las imágenes
+RutaISalida = 'C:\\'; %% Ruta de salida (escritura) de las imágenes
 
 I1 = imread(strcat(RutaIEntrada, 'Imagen1.jpg')); %% Imagen 1
 I2 = imread(strcat(RutaIEntrada, 'Imagen2.jpg')); %% Imagen 2
@@ -35,11 +28,6 @@ sY = 1.10; %% Factor de escalamiento de Zoom en Y de la Imagen
 angulo = 50; %% Angulo en grados de rotación de la Imagen
 k = -0.0008; %% Constante de Perspectiva
 
-%%%%%%% NOTA: siento que con perspectiva negativa se ve bien, pero se
-%%%%%%% invierte la imagen, entonces decidan ustedes si se queda negativo o
-%%%%%%% positivo...
-
-
 %% Secuencias de Transformaciones
 [Sec1ZoomNoRellenada, Sec1ZoomRellenada, Sec1RotarNoRellenada, Sec1RotarRellenada, Sec1PerspectivaNoRellenada, Sec1PerspectivaRellenada] = SecuenciaTransformaciones(I1, sX, sY, angulo, k); %% Secuencia con la Primera Imagen
 [Sec2ZoomNoRellenada, Sec2ZoomRellenada, Sec2RotarNoRellenada, Sec2RotarRellenada, Sec2PerspectivaNoRellenada, Sec2PerspectivaRellenada] = SecuenciaTransformaciones(I2, sX, sY, angulo, k); %% Secuencia con la Segunda Imagen
@@ -47,11 +35,11 @@ k = -0.0008; %% Constante de Perspectiva
 [Sec4ZoomNoRellenada, Sec4ZoomRellenada, Sec4RotarNoRellenada, Sec4RotarRellenada, Sec4PerspectivaNoRellenada, Sec4PerspectivaRellenada] = SecuenciaTransformaciones(I4, sX, sY, angulo, k); %% Secuencia con la Cuarta Imagen
 [Sec5ZoomNoRellenada, Sec5ZoomRellenada, Sec5RotarNoRellenada, Sec5RotarRellenada, Sec5PerspectivaNoRellenada, Sec5PerspectivaRellenada] = SecuenciaTransformaciones(I5, sX, sY, angulo, k); %% Secuencia con la Quinta Imagen
 %% Composición de Transformaciones
-% [Comp1ZoomNoRellenada, Comp1ZoomRellenada, Comp1RotarNoRellenada, Comp1RotarRellenada, Comp1PerspectivaNoRellenada, Comp1PerspectivaRellenada] = ComposicionTransformaciones(I1, sX, sY, angulo, k); %% Composicion con la Primera Imagen
-% [Comp2ZoomNoRellenada, Comp2ZoomRellenada, Comp2RotarNoRellenada, Comp2RotarRellenada, Comp2PerspectivaNoRellenada, Comp2PerspectivaRellenada] = ComposicionTransformaciones(I2, sX, sY, angulo, k); %% Composicion con la Segunda Imagen
-% [Comp3ZoomNoRellenada, Comp3ZoomRellenada, Comp3RotarNoRellenada, Comp3RotarRellenada, Comp3PerspectivaNoRellenada, Comp3PerspectivaRellenada] = ComposicionTransformaciones(I3, sX, sY, angulo, k); %% Composicion con la Tercera Imagen
-% [Comp4ZoomNoRellenada, Comp4ZoomRellenada, Comp4RotarNoRellenada, Comp4RotarRellenada, Comp4PerspectivaNoRellenada, Comp4PerspectivaRellenada] = ComposicionTransformaciones(I4, sX, sY, angulo, k); %% Composicion con la Cuarta Imagen
-% [Comp5ZoomNoRellenada, Comp5ZoomRellenada, Comp5RotarNoRellenada, Comp5RotarRellenada, Comp5PerspectivaNoRellenada, Comp5PerspectivaRellenada] = ComposicionTransformaciones(I5, sX, sY, angulo, k); %% Composicion con la Quinta Imagen
+[Comp1NoRellenada, Comp1Rellenada] = ComposicionTransformaciones(I1, sX, sY, angulo, k); %% Composicion con la Primera Imagen
+[Comp2NoRellenada, Comp2Rellenada] = ComposicionTransformaciones(I2, sX, sY, angulo, k); %% Composicion con la Segunda Imagen
+[Comp3NoRellenada, Comp3Rellenada] = ComposicionTransformaciones(I3, sX, sY, angulo, k); %% Composicion con la Tercera Imagen
+[Comp4NoRellenada, Comp4Rellenada] = ComposicionTransformaciones(I4, sX, sY, angulo, k); %% Composicion con la Cuarta Imagen
+[Comp5NoRellenada, Comp5Rellenada] = ComposicionTransformaciones(I5, sX, sY, angulo, k); %% Composicion con la Quinta Imagen
 
 
 %% Despliegue de las imágenes
@@ -108,55 +96,35 @@ subplot(3, 3, 9); imagesc(Sec5PerspectivaRellenada), title('Imagen Secuencia 5 c
 colormap(gray);
 %% Composiciones de Transformaciones
 %% Imagen Composición 1
-% figure;
-% subplot(3, 3, 1); imagesc(I1), title('Imagen Original 1');
-% subplot(3, 3, 2); imagesc(Comp1ZoomNoRellenada), title('Imagen Composicion 1 con Zoom No Rellenada');
-% subplot(3, 3, 3); imagesc(Comp1ZoomRellenada), title('Imagen Composicion 1 con Zoom Rellenada');
-% subplot(3, 3, 5); imagesc(Comp1RotarNoRellenada), title('Imagen Composicion 1 con Rotar No Rellenada');
-% subplot(3, 3, 6); imagesc(Comp1RotarRellenada), title('Imagen Composicion 1 con Rotar Rellenada');
-% subplot(3, 3, 8); imagesc(Comp1PerspectivaNoRellenada), title('Imagen Composicion 1 con Perspectiva No Rellenada');
-% subplot(3, 3, 9); imagesc(Comp1PerspectivaRellenada), title('Imagen Composicion 1 con Perspectiva Rellenada');
-% colormap(gray);
+figure;
+subplot(2, 2, 1); imagesc(I1), title('Imagen Original 1');
+subplot(2, 2, 3); imagesc(Comp1NoRellenada), title('Imagen Composicion 1 No Rellenada');
+subplot(2, 2, 4); imagesc(Comp1Rellenada), title('Imagen Composicion 1 Rellenada');
+colormap(gray);
 %% Imagen Composición 2
-% figure;
-% subplot(3, 3, 1); imagesc(I2), title('Imagen Original 2');
-% subplot(3, 3, 2); imagesc(Comp2ZoomNoRellenada), title('Imagen Composicion 2 con Zoom No Rellenada');
-% subplot(3, 3, 3); imagesc(Comp2ZoomRellenada), title('Imagen Composicion 2 con Zoom Rellenada');
-% subplot(3, 3, 5); imagesc(Comp2RotarNoRellenada), title('Imagen Composicion 2 con Rotar No Rellenada');
-% subplot(3, 3, 6); imagesc(Comp2RotarRellenada), title('Imagen Composicion 2 con Rotar Rellenada');
-% subplot(3, 3, 8); imagesc(Comp2PerspectivaNoRellenada), title('Imagen Composicion 2 con Perspectiva No Rellenada');
-% subplot(3, 3, 9); imagesc(Comp2PerspectivaRellenada), title('Imagen Composicion 2 con Perspectiva Rellenada');
-% colormap(gray);
+figure;
+subplot(2, 2, 1); imagesc(I2), title('Imagen Original 2');
+subplot(2, 2, 3); imagesc(Comp2NoRellenada), title('Imagen Composicion 2 No Rellenada');
+subplot(2, 2, 4); imagesc(Comp2Rellenada), title('Imagen Composicion 2 Rellenada');
+colormap(gray);
 %% Imagen Composición 3
-% figure;
-% subplot(3, 3, 1); imagesc(I3), title('Imagen Original 3');
-% subplot(3, 3, 2); imagesc(Comp3ZoomNoRellenada), title('Imagen Composicion 3 con Zoom No Rellenada');
-% subplot(3, 3, 3); imagesc(Comp3ZoomRellenada), title('Imagen Composicion 3 con Zoom Rellenada');
-% subplot(3, 3, 5); imagesc(Comp3RotarNoRellenada), title('Imagen Composicion 3 con Rotar No Rellenada');
-% subplot(3, 3, 6); imagesc(Comp3RotarRellenada), title('Imagen Composicion 3 con Rotar Rellenada');
-% subplot(3, 3, 8); imagesc(Comp3PerspectivaNoRellenada), title('Imagen Composicion 3 con Perspectiva No Rellenada');
-% subplot(3, 3, 9); imagesc(Comp3PerspectivaRellenada), title('Imagen Composicion 3 con Perspectiva Rellenada');
-% colormap(gray);
+figure;
+subplot(2, 2, 1); imagesc(I3), title('Imagen Original 3');
+subplot(2, 2, 3); imagesc(Comp3NoRellenada), title('Imagen Composicion 3 No Rellenada');
+subplot(2, 2, 4); imagesc(Comp3Rellenada), title('Imagen Composicion 3 Rellenada');
+colormap(gray);
 %% Imagen Composición 4
-% figure;
-% subplot(3, 3, 1); imagesc(I4), title('Imagen Original 4');
-% subplot(3, 3, 2); imagesc(Comp4ZoomNoRellenada), title('Imagen Composicion 4 con Zoom No Rellenada');
-% subplot(3, 3, 3); imagesc(Comp4ZoomRellenada), title('Imagen Composicion 4 con Zoom Rellenada');
-% subplot(3, 3, 5); imagesc(Comp4RotarNoRellenada), title('Imagen Composicion 4 con Rotar No Rellenada');
-% subplot(3, 3, 6); imagesc(Comp4RotarRellenada), title('Imagen Composicion 4 con Rotar Rellenada');
-% subplot(3, 3, 8); imagesc(Comp4PerspectivaNoRellenada), title('Imagen Composicion 4 con Perspectiva No Rellenada');
-% subplot(3, 3, 9); imagesc(Comp4PerspectivaRellenada), title('Imagen Composicion 4 con Perspectiva Rellenada');
-% colormap(gray);
+figure;
+subplot(2, 2, 1); imagesc(I4), title('Imagen Original 4');
+subplot(2, 2, 3); imagesc(Comp4NoRellenada), title('Imagen Composicion 4 No Rellenada');
+subplot(2, 2, 4); imagesc(Comp4Rellenada), title('Imagen Composicion 4 Rellenada');
+colormap(gray);
 %% Imagen Composición 5
-% figure;
-% subplot(3, 3, 1); imagesc(I5), title('Imagen Original 5');
-% subplot(3, 3, 2); imagesc(Comp5ZoomNoRellenada), title('Imagen Composicion 5 con Zoom No Rellenada');
-% subplot(3, 3, 3); imagesc(Comp5ZoomRellenada), title('Imagen Composicion 5 con Zoom Rellenada');
-% subplot(3, 3, 5); imagesc(Comp5RotarNoRellenada), title('Imagen Composicion 5 con Rotar No Rellenada');
-% subplot(3, 3, 6); imagesc(Comp5RotarRellenada), title('Imagen Composicion 5 con Rotar Rellenada');
-% subplot(3, 3, 8); imagesc(Comp5PerspectivaNoRellenada), title('Imagen Composicion 5 con Perspectiva No Rellenada');
-% subplot(3, 3, 9); imagesc(Comp5PerspectivaRellenada), title('Imagen Composicion 5 con Perspectiva Rellenada');
-% colormap(gray);
+figure;
+subplot(2, 2, 1); imagesc(I5), title('Imagen Original 5');
+subplot(2, 2, 3); imagesc(Comp5NoRellenada), title('Imagen Composicion 5 No Rellenada');
+subplot(2, 2, 4); imagesc(Comp5Rellenada), title('Imagen Composicion 5 Rellenada');
+colormap(gray);
 
 
 %% Escritura de las imágenes en un directorio
@@ -198,40 +166,20 @@ imwrite(Sec5RotarRellenada, strcat(RutaISalida, 'Secuencia5_RotarRellenada.jpg')
 imwrite(Sec5PerspectivaRellenada, strcat(RutaISalida, 'Secuencia5_PerspectivaRellenada.jpg')); %% Almacenar Imagen Secuencia 5 con Perspectiva Rellenada
 %% Composición de Transformaciones
 %% Composición Imagen 1
-% imwrite(Comp1ZoomNoRellenada, strcat(RutaISalida, 'Composicion1_ZoomNoRellenada.jpg')); %% Almacenar Imagen Composición 1 con Zoom No Rellenada
-% imwrite(Comp1RotarNoRellenada, strcat(RutaISalida, 'Composicion1_RotarNoRellenada.jpg')); %% Almacenar Imagen Composición 1 con Rotar No Rellenada
-% imwrite(Comp1PerspectivaNoRellenada, strcat(RutaISalida, 'Composicion1_PerspectivaNoRellenada.jpg')); %% Almacenar Imagen Composición 1 con Perspectiva No Rellenada
-% imwrite(Comp1ZoomRellenada, strcat(RutaISalida, 'Composicion1_ZoomRellenada.jpg')); %% Almacenar Imagen Composición 1 con Zoom Rellenada
-% imwrite(Comp1RotarRellenada, strcat(RutaISalida, 'Composicion1_RotarRellenada.jpg')); %% Almacenar Imagen Composición 1 con Rotar Rellenada
-% imwrite(Comp1PerspectivaRellenada, strcat(RutaISalida, 'Composicion1_PerspectivaRellenada.jpg')); %% Almacenar Imagen Composición 1 con Perspectiva Rellenada
+imwrite(Comp1NoRellenada, strcat(RutaISalida, 'Composicion1_NoRellenada.jpg')); %% Almacenar Imagen Composición 1 No Rellenada
+imwrite(Comp1Rellenada, strcat(RutaISalida, 'Composicion1_Rellenada.jpg')); %% Almacenar Imagen Composición 1 Rellenada
 %% Composición Imagen 2
-% imwrite(Comp2ZoomNoRellenada, strcat(RutaISalida, 'Composicion2_ZoomNoRellenada.jpg')); %% Almacenar Imagen Composición 2 con Zoom No Rellenada
-% imwrite(Comp2RotarNoRellenada, strcat(RutaISalida, 'Composicion2_RotarNoRellenada.jpg')); %% Almacenar Imagen Composición 2 con Rotar No Rellenada
-% imwrite(Comp2PerspectivaNoRellenada, strcat(RutaISalida, 'Composicion2_PerspectivaNoRellenada.jpg')); %% Almacenar Imagen Composición 2 con Perspectiva No Rellenada
-% imwrite(Comp2ZoomRellenada, strcat(RutaISalida, 'Composicion2_ZoomRellenada.jpg')); %% Almacenar Imagen Composición 2 con Zoom Rellenada
-% imwrite(Comp2RotarRellenada, strcat(RutaISalida, 'Composicion2_RotarRellenada.jpg')); %% Almacenar Imagen Composición 2 con Rotar Rellenada
-% imwrite(Comp2PerspectivaRellenada, strcat(RutaISalida, 'Composicion2_PerspectivaRellenada.jpg')); %% Almacenar Imagen Composición 2 con Perspectiva Rellenada
+imwrite(Comp2NoRellenada, strcat(RutaISalida, 'Composicion2_NoRellenada.jpg')); %% Almacenar Imagen Composición 2 No Rellenada
+imwrite(Comp2Rellenada, strcat(RutaISalida, 'Composicion2_Rellenada.jpg')); %% Almacenar Imagen Composición 2 Rellenada
 %% Composición Imagen 3
-% imwrite(Comp3ZoomNoRellenada, strcat(RutaISalida, 'Composicion3_ZoomNoRellenada.jpg')); %% Almacenar Imagen Composición 3 con Zoom No Rellenada
-% imwrite(Comp3RotarNoRellenada, strcat(RutaISalida, 'Composicion3_RotarNoRellenada.jpg')); %% Almacenar Imagen Composición 3 con Rotar No Rellenada
-% imwrite(Comp3PerspectivaNoRellenada, strcat(RutaISalida, 'Composicion3_PerspectivaNoRellenada.jpg')); %% Almacenar Imagen Composición 3 con Perspectiva No Rellenada
-% imwrite(Comp3ZoomRellenada, strcat(RutaISalida, 'Composicion3_ZoomRellenada.jpg')); %% Almacenar Imagen Composición 3 con Zoom Rellenada
-% imwrite(Comp3RotarRellenada, strcat(RutaISalida, 'Composicion3_RotarRellenada.jpg')); %% Almacenar Imagen Composición 3 con Rotar Rellenada
-% imwrite(Comp3PerspectivaRellenada, strcat(RutaISalida, 'Composicion3_PerspectivaRellenada.jpg')); %% Almacenar Imagen Composición 3 con Perspectiva Rellenada
+imwrite(Comp3NoRellenada, strcat(RutaISalida, 'Composicion3_NoRellenada.jpg')); %% Almacenar Imagen Composición 3 No Rellenada
+imwrite(Comp3Rellenada, strcat(RutaISalida, 'Composicion3_Rellenada.jpg')); %% Almacenar Imagen Composición 3 Rellenada
 %% Composición Imagen 4
-% imwrite(Comp4ZoomNoRellenada, strcat(RutaISalida, 'Composicion4_ZoomNoRellenada.jpg')); %% Almacenar Imagen Composición 4 con Zoom No Rellenada
-% imwrite(Comp4RotarNoRellenada, strcat(RutaISalida, 'Composicion4_RotarNoRellenada.jpg')); %% Almacenar Imagen Composición 4 con Rotar No Rellenada
-% imwrite(Comp4PerspectivaNoRellenada, strcat(RutaISalida, 'Composicion4_PerspectivaNoRellenada.jpg')); %% Almacenar Imagen Composición 4 con Perspectiva No Rellenada
-% imwrite(Comp4ZoomRellenada, strcat(RutaISalida, 'Composicion4_ZoomRellenada.jpg')); %% Almacenar Imagen Composición 4 con Zoom Rellenada
-% imwrite(Comp4RotarRellenada, strcat(RutaISalida, 'Composicion4_RotarRellenada.jpg')); %% Almacenar Imagen Composición 4 con Rotar Rellenada
-% imwrite(Comp4PerspectivaRellenada, strcat(RutaISalida, 'Composicion4_PerspectivaRellenada.jpg')); %% Almacenar Imagen Composición 4 con Perspectiva Rellenada
+imwrite(Comp4NoRellenada, strcat(RutaISalida, 'Composicion4_NoRellenada.jpg')); %% Almacenar Imagen Composición 4 No Rellenada
+imwrite(Comp4Rellenada, strcat(RutaISalida, 'Composicion4_Rellenada.jpg')); %% Almacenar Imagen Composición 4 Rellenada
 %% Composición Imagen 5
-% imwrite(Comp5ZoomNoRellenada, strcat(RutaISalida, 'Composicion5_ZoomNoRellenada.jpg')); %% Almacenar Imagen Composición 5 con Zoom No Rellenada
-% imwrite(Comp5RotarNoRellenada, strcat(RutaISalida, 'Composicion5_RotarNoRellenada.jpg')); %% Almacenar Imagen Composición 5 con Rotar No Rellenada
-% imwrite(Comp5PerspectivaNoRellenada, strcat(RutaISalida, 'Composicion5_PerspectivaNoRellenada.jpg')); %% Almacenar Imagen Composición 5 con Perspectiva No Rellenada
-% imwrite(Comp5ZoomRellenada, strcat(RutaISalida, 'Composicion5_ZoomRellenada.jpg')); %% Almacenar Imagen Composición 5 con Zoom Rellenada
-% imwrite(Comp5RotarRellenada, strcat(RutaISalida, 'Composicion5_RotarRellenada.jpg')); %% Almacenar Imagen Composición 5 con Rotar Rellenada
-% imwrite(Comp5PerspectivaRellenada, strcat(RutaISalida, 'Composicion5_PerspectivaRellenada.jpg')); %% Almacenar Imagen Composición 5 con Perspectiva Rellenada
+imwrite(Comp5NoRellenada, strcat(RutaISalida, 'Composicion5_NoRellenada.jpg')); %% Almacenar Imagen Composición 5 No Rellenada
+imwrite(Comp5Rellenada, strcat(RutaISalida, 'Composicion5_Rellenada.jpg')); %% Almacenar Imagen Composición 5 Rellenada
 
 
 
