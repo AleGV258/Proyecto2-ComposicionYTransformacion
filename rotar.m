@@ -1,17 +1,17 @@
 %% Rotar una imagen
 %% Entradas
-%% I -imagen
+%% I - imagen
 %% angulo - angulo de rotacion
 %% Salidas
-%% G imagen de salida
-%% IBand Bandera con indicador de valor (1-existe valor)
+%% G - imagen de salida
+%% IBand - Bandera con indicador de valor (1-existe valor)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function [G, IBand] = rotar(I, angulo)
     G = 0;
     IBand = 0; 
     
-    %calcular nuevas coordenadas
+    % calcular nuevas coordenadas
     coseno = cosd(angulo);
     seno = sind(angulo);
     nCoord = zeros(size(I, 1), size(I, 2), 2); %% x', y'

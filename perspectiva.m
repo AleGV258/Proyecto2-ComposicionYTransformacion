@@ -3,8 +3,8 @@
 %% I -imagen
 %% k - constante de perspectiva (cercano a cero)
 %% Salidas
-%% G imagen de salida
-%% IBand Bandera con indicador de valor (1-existe valor)
+%% G - imagen de salida
+%% IBand - Bandera con indicador de valor (1-existe valor)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function [G, IBand] = perspectiva(I, k)
     G = 0;

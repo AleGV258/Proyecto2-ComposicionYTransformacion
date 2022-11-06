@@ -1,17 +1,17 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%  Proyecto 2. GeometrÌa de la Imagen                                               %%
-%%  Materia: TÛpico 1 (Procesamiento Secuencial de Im·genes usando Matlab)           %%
+%%  Proyecto 2. Geometr√≠a de la Imagen                                               %%
+%%  Materia: T√≥pico 1 (Procesamiento Secuencial de Im√°genes usando Matlab)           %%
 %%  Maestra: Sandra Luz Canchola Magdaleno                                           %%
 %%                                                                                   %%
 %%  Grupo: 30 - Semestre: 7mo                                                        %%
 %%  Integrantes:                                                                     %%
-%%   - GarcÌa Vargas Michell Alejandro - 259663                                      %%
-%%   - JimÈnez Elizalde AndrÈs - 259678                                              %%
-%%   - LeÛn Paulin Daniel - 260541                                                   %%
+%%   - Garc√≠a Vargas Michell Alejandro - 259663                                      %%
+%%   - Jim√©nez Elizalde Andr√©s - 259678                                              %%
+%%   - Le√≥n Paulin Daniel - 260541                                                   %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function [IComposicion, IComposicionRellenada] = ComposicionTransformaciones(I, sX, sY, angulo, k)
-    %% funciÛn que unifica las tres transformaciones y devuelve las im·genes
+    %% Funci√≥n que unifica las tres transformaciones y devuelve las im√°genes
     tic;
     IBand = 0;
     coseno = cosd(angulo);
@@ -19,8 +19,8 @@ function [IComposicion, IComposicionRellenada] = ComposicionTransformaciones(I, 
     nCoord = zeros(size(I, 1), size(I, 2), 2); %% x', y'
     for i=1:size(I, 1) %% renglones - y
         for j=1:size(I, 2) %% columnas - x
-            ny = (j * sX * seno) + (i * sY * coseno); %% nueva formula que integra Zoom, Rotar y Perspectiva en el eje y
-            nx = ((j * sX * coseno) - (i * sY * seno)) * ny * k; %% nueva formula que integra Zoom, Rotar y Perspectiva en el eje x
+            ny = (j * sX * seno) + (i * sY * coseno); %% Nueva formula que integra Zoom, Rotar y Perspectiva en el eje y
+            nx = ((j * sX * coseno) - (i * sY * seno)) * ny * k; %% Nueva formula que integra Zoom, Rotar y Perspectiva en el eje x
             nCoord(i, j, 1) = nx;  %% x'
             nCoord(i, j, 2) = ny;  %% y'
         end

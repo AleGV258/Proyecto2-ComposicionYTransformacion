@@ -1,17 +1,17 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%  Proyecto 2. Geometr韆 de la Imagen                                               %%
-%%  Materia: T髉ico 1 (Procesamiento Secuencial de Im醙enes usando Matlab)           %%
+%%  Proyecto 2. Geometr铆a de la Imagen                                               %%
+%%  Materia: T贸pico 1 (Procesamiento Secuencial de Im谩genes usando Matlab)           %%
 %%  Maestra: Sandra Luz Canchola Magdaleno                                           %%
 %%                                                                                   %%
 %%  Grupo: 30 - Semestre: 7mo                                                        %%
 %%  Integrantes:                                                                     %%
-%%   - Garc韆 Vargas Michell Alejandro - 259663                                      %%
-%%   - Jim閚ez Elizalde Andr閟 - 259678                                              %%
-%%   - Le髇 Paulin Daniel - 260541                                                   %%
+%%   - Garc铆a Vargas Michell Alejandro - 259663                                      %%
+%%   - Jim茅nez Elizalde Andr茅s - 259678                                              %%
+%%   - Le贸n Paulin Daniel - 260541                                                   %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function [ISinRellenarZoom, IRellenadaZoom, ISinRellenarRotar, IRellenadaRotar, ISinRellenarPerspectiva, IRellenadaPerspectiva] = SecuenciaTransformaciones(I, sX, sY, angulo, k)
-    %% Llamada de las funciones en el orden que le toco al equipo
+    %% Llamada de las funciones en el orden que le toc贸 al equipo
     %% Primero Zoom
     tic;
     [ISinRellenarZoom, IBand1] = zoomSxSy(I, sX, sY); %% 1. Primero se le aplica Zoom Sx Sy
@@ -23,7 +23,7 @@ function [ISinRellenarZoom, IRellenadaZoom, ISinRellenarRotar, IRellenadaRotar, 
     
     %% Segundo Rotar
     tic;
-    [ISinRellenarRotar, IBand2] = rotar(IRellenadaZoom, angulo); %% 2. Segundo se le aplica Rotaci髇
+    [ISinRellenarRotar, IBand2] = rotar(IRellenadaZoom, angulo); %% 2. Segundo se le aplica Rotaci贸n
     fprintf('Imagen con Rotar sin Rellenar - ');
     toc; tic;
     [IRellenadaRotar, BandN2, noPixelesRotar] = rellenarImg(ISinRellenarRotar, IBand2, 1);

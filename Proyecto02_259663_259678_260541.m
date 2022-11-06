@@ -1,21 +1,21 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%  Proyecto 2. Geometr韆 de la Imagen                                               %%
-%%  Materia: T髉ico 1 (Procesamiento Secuencial de Im醙enes usando Matlab)           %%
+%%  Proyecto 2. Geometr铆a de la Imagen                                               %%
+%%  Materia: T贸pico 1 (Procesamiento Secuencial de Im谩genes usando Matlab)           %%
 %%  Maestra: Sandra Luz Canchola Magdaleno                                           %%
 %%                                                                                   %%
 %%  Grupo: 30 - Semestre: 7mo                                                        %%
 %%  Integrantes:                                                                     %%
-%%   - Garc韆 Vargas Michell Alejandro - 259663                                      %%
-%%   - Jim閚ez Elizalde Andr閟 - 259678                                              %%
-%%   - Le髇 Paulin Daniel - 260541                                                   %%
+%%   - Garc铆a Vargas Michell Alejandro - 259663                                      %%
+%%   - Jim茅nez Elizalde Andr茅s - 259678                                              %%
+%%   - Le贸n Paulin Daniel - 260541                                                   %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 clear; %% Limpiar memoria
 close all; %% Cerrar ventanas abiertas
 clc; %% Limpiar consola
 
-RutaIEntrada = 'C:\\'; %% Ruta de entrada (lectura) de las im醙enes
-RutaISalida = 'C:\\'; %% Ruta de salida (escritura) de las im醙enes
+RutaIEntrada = 'C:\(rutaProyecto)\entradas\'; %% Ruta de entrada (lectura) de las im谩genes
+RutaISalida = 'C:\(rutaProyecto)\salidas\'; %% Ruta de salida (escritura) de las im谩genes
 
 I1 = imread(strcat(RutaIEntrada, 'Imagen1.jpg')); %% Imagen 1
 I2 = imread(strcat(RutaIEntrada, 'Imagen2.jpg')); %% Imagen 2
@@ -25,7 +25,7 @@ I5 = imread(strcat(RutaIEntrada, 'Imagen5.jpg')); %% Imagen 5
 
 sX = 1.30; %% Factor de escalamiento de Zoom en X de la Imagen
 sY = 1.10; %% Factor de escalamiento de Zoom en Y de la Imagen
-angulo = 50; %% Angulo en grados de rotaci髇 de la Imagen
+angulo = 50; %% 脕ngulo en grados de rotaci贸n de la Imagen
 k = -0.0008; %% Constante de Perspectiva
 
 %% Secuencias de Transformaciones
@@ -34,7 +34,7 @@ k = -0.0008; %% Constante de Perspectiva
 [Sec3ZoomNoRellenada, Sec3ZoomRellenada, Sec3RotarNoRellenada, Sec3RotarRellenada, Sec3PerspectivaNoRellenada, Sec3PerspectivaRellenada] = SecuenciaTransformaciones(I3, sX, sY, angulo, k); %% Secuencia con la Tercera Imagen
 [Sec4ZoomNoRellenada, Sec4ZoomRellenada, Sec4RotarNoRellenada, Sec4RotarRellenada, Sec4PerspectivaNoRellenada, Sec4PerspectivaRellenada] = SecuenciaTransformaciones(I4, sX, sY, angulo, k); %% Secuencia con la Cuarta Imagen
 [Sec5ZoomNoRellenada, Sec5ZoomRellenada, Sec5RotarNoRellenada, Sec5RotarRellenada, Sec5PerspectivaNoRellenada, Sec5PerspectivaRellenada] = SecuenciaTransformaciones(I5, sX, sY, angulo, k); %% Secuencia con la Quinta Imagen
-%% Composici髇 de Transformaciones
+%% Composici贸n de Transformaciones
 [Comp1NoRellenada, Comp1Rellenada] = ComposicionTransformaciones(I1, sX, sY, angulo, k); %% Composicion con la Primera Imagen
 [Comp2NoRellenada, Comp2Rellenada] = ComposicionTransformaciones(I2, sX, sY, angulo, k); %% Composicion con la Segunda Imagen
 [Comp3NoRellenada, Comp3Rellenada] = ComposicionTransformaciones(I3, sX, sY, angulo, k); %% Composicion con la Tercera Imagen
@@ -42,7 +42,7 @@ k = -0.0008; %% Constante de Perspectiva
 [Comp5NoRellenada, Comp5Rellenada] = ComposicionTransformaciones(I5, sX, sY, angulo, k); %% Composicion con la Quinta Imagen
 
 
-%% Despliegue de las im醙enes
+%% Despliegue de las im谩genes
 %% Secuencias de Transformaciones
 %% Imagen Secuencia 1
 figure;
@@ -95,31 +95,31 @@ subplot(3, 3, 8); imagesc(Sec5PerspectivaNoRellenada), title('Imagen Secuencia 5
 subplot(3, 3, 9); imagesc(Sec5PerspectivaRellenada), title('Imagen Secuencia 5 con Perspectiva Rellenada');
 colormap(gray);
 %% Composiciones de Transformaciones
-%% Imagen Composici髇 1
+%% Imagen Composici贸n 1
 figure;
 subplot(2, 2, 1); imagesc(I1), title('Imagen Original 1');
 subplot(2, 2, 3); imagesc(Comp1NoRellenada), title('Imagen Composicion 1 No Rellenada');
 subplot(2, 2, 4); imagesc(Comp1Rellenada), title('Imagen Composicion 1 Rellenada');
 colormap(gray);
-%% Imagen Composici髇 2
+%% Imagen Composici贸n 2
 figure;
 subplot(2, 2, 1); imagesc(I2), title('Imagen Original 2');
 subplot(2, 2, 3); imagesc(Comp2NoRellenada), title('Imagen Composicion 2 No Rellenada');
 subplot(2, 2, 4); imagesc(Comp2Rellenada), title('Imagen Composicion 2 Rellenada');
 colormap(gray);
-%% Imagen Composici髇 3
+%% Imagen Composici贸n 3
 figure;
 subplot(2, 2, 1); imagesc(I3), title('Imagen Original 3');
 subplot(2, 2, 3); imagesc(Comp3NoRellenada), title('Imagen Composicion 3 No Rellenada');
 subplot(2, 2, 4); imagesc(Comp3Rellenada), title('Imagen Composicion 3 Rellenada');
 colormap(gray);
-%% Imagen Composici髇 4
+%% Imagen Composici贸n 4
 figure;
 subplot(2, 2, 1); imagesc(I4), title('Imagen Original 4');
 subplot(2, 2, 3); imagesc(Comp4NoRellenada), title('Imagen Composicion 4 No Rellenada');
 subplot(2, 2, 4); imagesc(Comp4Rellenada), title('Imagen Composicion 4 Rellenada');
 colormap(gray);
-%% Imagen Composici髇 5
+%% Imagen Composici贸n 5
 figure;
 subplot(2, 2, 1); imagesc(I5), title('Imagen Original 5');
 subplot(2, 2, 3); imagesc(Comp5NoRellenada), title('Imagen Composicion 5 No Rellenada');
@@ -127,7 +127,7 @@ subplot(2, 2, 4); imagesc(Comp5Rellenada), title('Imagen Composicion 5 Rellenada
 colormap(gray);
 
 
-%% Escritura de las im醙enes en un directorio
+%% Escritura de las im谩genes en un directorio
 %% Secuencias de Transformaciones
 %% Secuencia Imagen 1
 imwrite(Sec1ZoomNoRellenada, strcat(RutaISalida, 'Secuencia1_ZoomNoRellenada.jpg')); %% Almacenar Imagen Secuencia 1 con Zoom No Rellenada
@@ -164,22 +164,22 @@ imwrite(Sec5PerspectivaNoRellenada, strcat(RutaISalida, 'Secuencia5_PerspectivaN
 imwrite(Sec5ZoomRellenada, strcat(RutaISalida, 'Secuencia5_ZoomRellenada.jpg')); %% Almacenar Imagen Secuencia 5 con Zoom Rellenada
 imwrite(Sec5RotarRellenada, strcat(RutaISalida, 'Secuencia5_RotarRellenada.jpg')); %% Almacenar Imagen Secuencia 5 con Rotar Rellenada
 imwrite(Sec5PerspectivaRellenada, strcat(RutaISalida, 'Secuencia5_PerspectivaRellenada.jpg')); %% Almacenar Imagen Secuencia 5 con Perspectiva Rellenada
-%% Composici髇 de Transformaciones
-%% Composici髇 Imagen 1
-imwrite(Comp1NoRellenada, strcat(RutaISalida, 'Composicion1_NoRellenada.jpg')); %% Almacenar Imagen Composici髇 1 No Rellenada
-imwrite(Comp1Rellenada, strcat(RutaISalida, 'Composicion1_Rellenada.jpg')); %% Almacenar Imagen Composici髇 1 Rellenada
-%% Composici髇 Imagen 2
-imwrite(Comp2NoRellenada, strcat(RutaISalida, 'Composicion2_NoRellenada.jpg')); %% Almacenar Imagen Composici髇 2 No Rellenada
-imwrite(Comp2Rellenada, strcat(RutaISalida, 'Composicion2_Rellenada.jpg')); %% Almacenar Imagen Composici髇 2 Rellenada
-%% Composici髇 Imagen 3
-imwrite(Comp3NoRellenada, strcat(RutaISalida, 'Composicion3_NoRellenada.jpg')); %% Almacenar Imagen Composici髇 3 No Rellenada
-imwrite(Comp3Rellenada, strcat(RutaISalida, 'Composicion3_Rellenada.jpg')); %% Almacenar Imagen Composici髇 3 Rellenada
-%% Composici髇 Imagen 4
-imwrite(Comp4NoRellenada, strcat(RutaISalida, 'Composicion4_NoRellenada.jpg')); %% Almacenar Imagen Composici髇 4 No Rellenada
-imwrite(Comp4Rellenada, strcat(RutaISalida, 'Composicion4_Rellenada.jpg')); %% Almacenar Imagen Composici髇 4 Rellenada
-%% Composici髇 Imagen 5
-imwrite(Comp5NoRellenada, strcat(RutaISalida, 'Composicion5_NoRellenada.jpg')); %% Almacenar Imagen Composici髇 5 No Rellenada
-imwrite(Comp5Rellenada, strcat(RutaISalida, 'Composicion5_Rellenada.jpg')); %% Almacenar Imagen Composici髇 5 Rellenada
+%% Composici贸n de Transformaciones
+%% Composici贸n Imagen 1
+imwrite(Comp1NoRellenada, strcat(RutaISalida, 'Composicion1_NoRellenada.jpg')); %% Almacenar Imagen Composici贸n 1 No Rellenada
+imwrite(Comp1Rellenada, strcat(RutaISalida, 'Composicion1_Rellenada.jpg')); %% Almacenar Imagen Composici贸n 1 Rellenada
+%% Composici贸n Imagen 2
+imwrite(Comp2NoRellenada, strcat(RutaISalida, 'Composicion2_NoRellenada.jpg')); %% Almacenar Imagen Composici贸n 2 No Rellenada
+imwrite(Comp2Rellenada, strcat(RutaISalida, 'Composicion2_Rellenada.jpg')); %% Almacenar Imagen Composici贸n 2 Rellenada
+%% Composici贸n Imagen 3
+imwrite(Comp3NoRellenada, strcat(RutaISalida, 'Composicion3_NoRellenada.jpg')); %% Almacenar Imagen Composici贸n 3 No Rellenada
+imwrite(Comp3Rellenada, strcat(RutaISalida, 'Composicion3_Rellenada.jpg')); %% Almacenar Imagen Composici贸n 3 Rellenada
+%% Composici贸n Imagen 4
+imwrite(Comp4NoRellenada, strcat(RutaISalida, 'Composicion4_NoRellenada.jpg')); %% Almacenar Imagen Composici贸n 4 No Rellenada
+imwrite(Comp4Rellenada, strcat(RutaISalida, 'Composicion4_Rellenada.jpg')); %% Almacenar Imagen Composici贸n 4 Rellenada
+%% Composici贸n Imagen 5
+imwrite(Comp5NoRellenada, strcat(RutaISalida, 'Composicion5_NoRellenada.jpg')); %% Almacenar Imagen Composici贸n 5 No Rellenada
+imwrite(Comp5Rellenada, strcat(RutaISalida, 'Composicion5_Rellenada.jpg')); %% Almacenar Imagen Composici贸n 5 Rellenada
 
 
 
