@@ -1,13 +1,13 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%  Proyecto 2. Geometr√≠a de la Imagen                                               %%
-%%  Materia: T√≥pico 1 (Procesamiento Secuencial de Im√°genes usando Matlab)           %%
+%%  Proyecto 2. GeometrÌa de la Imagen                                               %%
+%%  Materia: TÛpico 1 (Procesamiento Secuencial de Im·genes usando Matlab)           %%
 %%  Maestra: Sandra Luz Canchola Magdaleno                                           %%
 %%                                                                                   %%
 %%  Grupo: 30 - Semestre: 7mo                                                        %%
 %%  Integrantes:                                                                     %%
-%%   - Garc√≠a Vargas Michell Alejandro - 259663                                      %%
-%%   - Jim√©nez Elizalde Andr√©s - 259678                                              %%
-%%   - Le√≥n Paulin Daniel - 260541                                                   %%
+%%   - GarcÌa Vargas Michell Alejandro - 259663                                      %%
+%%   - JimÈnez Elizalde AndrÈs - 259678                                              %%
+%%   - LeÛn Paulin Daniel - 260541                                                   %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function [ISinRellenarZoom, IRellenadaZoom, ISinRellenarRotar, IRellenadaRotar, ISinRellenarPerspectiva, IRellenadaPerspectiva] = SecuenciaTransformaciones(I, sX, sY, angulo, k)
