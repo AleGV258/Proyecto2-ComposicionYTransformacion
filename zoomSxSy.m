@@ -12,7 +12,7 @@ function [G, IBand] = zoomSxSy(I, sX, sY)
     nc = round(size(I, 2) * sX);
     G = 0;
     IBand = 0;
-    if(max(nr, nc) < 5000)  %% tamaño máximo permitido
+    if(max(nr, nc) < 5000) %% tamaño máximo permitido
         G = zeros(nr, nc, size(I, 3));
         IBand = zeros(nr, nc);
         

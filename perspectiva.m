@@ -6,6 +6,7 @@
 %% G - imagen de salida
 %% IBand - Bandera con indicador de valor (1-existe valor)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 function [G, IBand] = perspectiva(I, k)
     G = 0;
     IBand = 0; 
