@@ -14,7 +14,7 @@ clear; %% Limpiar memoria
 close all; %% Cerrar ventanas abiertas
 clc; %% Limpiar consola
 
-RutaIEntrada = 'C:\Users\alegv\OneDrive\Documentos\Escuela\Tópico I\Proyecto\Proyecto2-ComposicionYTransformacion\entradas\'; %% Ruta de entrada (lectura) de las imágenes
+RutaIEntrada = 'C:\(rutaProyecto)\entradas\'; %% Ruta de entrada (lectura) de las imágenes
 %RutaISalida = 'C:\(rutaProyecto)\salidas\'; %% Ruta de salida (escritura) de las imágenes
 
 I1 = imread(strcat(RutaIEntrada, 'Imagen1.jpg')); %% Imagen 1
@@ -130,56 +130,56 @@ colormap(gray);
 %% Escritura de las imágenes en un directorio
 %% Secuencias de Transformaciones
 %% Secuencia Imagen 1
-% imwrite(Sec1ZoomNoRellenada, strcat(RutaISalida, 'Secuencia1_ZoomNoRellenada.jpg')); %% Almacenar Imagen Secuencia 1 con Zoom No Rellenada
-% imwrite(Sec1RotarNoRellenada, strcat(RutaISalida, 'Secuencia1_RotarNoRellenada.jpg')); %% Almacenar Imagen Secuencia 1 con Rotar No Rellenada
-% imwrite(Sec1PerspectivaNoRellenada, strcat(RutaISalida, 'Secuencia1_PerspectivaNoRellenada.jpg')); %% Almacenar Imagen Secuencia 1 con Perspectiva No Rellenada
-% imwrite(Sec1ZoomRellenada, strcat(RutaISalida, 'Secuencia1_ZoomRellenada.jpg')); %% Almacenar Imagen Secuencia 1 con Zoom Rellenada
-% imwrite(Sec1RotarRellenada, strcat(RutaISalida, 'Secuencia1_RotarRellenada.jpg')); %% Almacenar Imagen Secuencia 1 con Rotar Rellenada
-% imwrite(Sec1PerspectivaRellenada, strcat(RutaISalida, 'Secuencia1_PerspectivaRellenada.jpg')); %% Almacenar Imagen Secuencia 1 con Perspectiva Rellenada
-% %% Secuencia Imagen 2
-% imwrite(Sec2ZoomNoRellenada, strcat(RutaISalida, 'Secuencia2_ZoomNoRellenada.jpg')); %% Almacenar Imagen Secuencia 2 con Zoom No Rellenada
-% imwrite(Sec2RotarNoRellenada, strcat(RutaISalida, 'Secuencia2_RotarNoRellenada.jpg')); %% Almacenar Imagen Secuencia 2 con Rotar No Rellenada
-% imwrite(Sec2PerspectivaNoRellenada, strcat(RutaISalida, 'Secuencia2_PerspectivaNoRellenada.jpg')); %% Almacenar Imagen Secuencia 2 con Perspectiva No Rellenada
-% imwrite(Sec2ZoomRellenada, strcat(RutaISalida, 'Secuencia2_ZoomRellenada.jpg')); %% Almacenar Imagen Secuencia 2 con Zoom Rellenada
-% imwrite(Sec2RotarRellenada, strcat(RutaISalida, 'Secuencia2_RotarRellenada.jpg')); %% Almacenar Imagen Secuencia 2 con Rotar Rellenada
-% imwrite(Sec2PerspectivaRellenada, strcat(RutaISalida, 'Secuencia2_PerspectivaRellenada.jpg')); %% Almacenar Imagen Secuencia 2 con Perspectiva Rellenada
-% %% Secuencia Imagen 3
-% imwrite(Sec3ZoomNoRellenada, strcat(RutaISalida, 'Secuencia3_ZoomNoRellenada.jpg')); %% Almacenar Imagen Secuencia 3 con Zoom No Rellenada
-% imwrite(Sec3RotarNoRellenada, strcat(RutaISalida, 'Secuencia3_RotarNoRellenada.jpg')); %% Almacenar Imagen Secuencia 3 con Rotar No Rellenada
-% imwrite(Sec3PerspectivaNoRellenada, strcat(RutaISalida, 'Secuencia3_PerspectivaNoRellenada.jpg')); %% Almacenar Imagen Secuencia 3 con Perspectiva No Rellenada
-% imwrite(Sec3ZoomRellenada, strcat(RutaISalida, 'Secuencia3_ZoomRellenada.jpg')); %% Almacenar Imagen Secuencia 3 con Zoom Rellenada
-% imwrite(Sec3RotarRellenada, strcat(RutaISalida, 'Secuencia3_RotarRellenada.jpg')); %% Almacenar Imagen Secuencia 3 con Rotar Rellenada
-% imwrite(Sec3PerspectivaRellenada, strcat(RutaISalida, 'Secuencia3_PerspectivaRellenada.jpg')); %% Almacenar Imagen Secuencia 3 con Perspectiva Rellenada
-% %% Secuencia Imagen 4
-% imwrite(Sec4ZoomNoRellenada, strcat(RutaISalida, 'Secuencia4_ZoomNoRellenada.jpg')); %% Almacenar Imagen Secuencia 4 con Zoom No Rellenada
-% imwrite(Sec4RotarNoRellenada, strcat(RutaISalida, 'Secuencia4_RotarNoRellenada.jpg')); %% Almacenar Imagen Secuencia 4 con Rotar No Rellenada
-% imwrite(Sec4PerspectivaNoRellenada, strcat(RutaISalida, 'Secuencia4_PerspectivaNoRellenada.jpg')); %% Almacenar Imagen Secuencia 4 con Perspectiva No Rellenada
-% imwrite(Sec4ZoomRellenada, strcat(RutaISalida, 'Secuencia4_ZoomRellenada.jpg')); %% Almacenar Imagen Secuencia 4 con Zoom Rellenada
-% imwrite(Sec4RotarRellenada, strcat(RutaISalida, 'Secuencia4_RotarRellenada.jpg')); %% Almacenar Imagen Secuencia 4 con Rotar Rellenada
-% imwrite(Sec4PerspectivaRellenada, strcat(RutaISalida, 'Secuencia4_PerspectivaRellenada.jpg')); %% Almacenar Imagen Secuencia 4 con Perspectiva Rellenada
-% %% Secuencia Imagen 5
-% imwrite(Sec5ZoomNoRellenada, strcat(RutaISalida, 'Secuencia5_ZoomNoRellenada.jpg')); %% Almacenar Imagen Secuencia 5 con Zoom No Rellenada
-% imwrite(Sec5RotarNoRellenada, strcat(RutaISalida, 'Secuencia5_RotarNoRellenada.jpg')); %% Almacenar Imagen Secuencia 5 con Rotar No Rellenada
-% imwrite(Sec5PerspectivaNoRellenada, strcat(RutaISalida, 'Secuencia5_PerspectivaNoRellenada.jpg')); %% Almacenar Imagen Secuencia 5 con Perspectiva No Rellenada
-% imwrite(Sec5ZoomRellenada, strcat(RutaISalida, 'Secuencia5_ZoomRellenada.jpg')); %% Almacenar Imagen Secuencia 5 con Zoom Rellenada
-% imwrite(Sec5RotarRellenada, strcat(RutaISalida, 'Secuencia5_RotarRellenada.jpg')); %% Almacenar Imagen Secuencia 5 con Rotar Rellenada
-% imwrite(Sec5PerspectivaRellenada, strcat(RutaISalida, 'Secuencia5_PerspectivaRellenada.jpg')); %% Almacenar Imagen Secuencia 5 con Perspectiva Rellenada
-% %% Composición de Transformaciones
-% %% Composición Imagen 1
-% imwrite(Comp1NoRellenada, strcat(RutaISalida, 'Composicion1_NoRellenada.jpg')); %% Almacenar Imagen Composición 1 No Rellenada
-% imwrite(Comp1Rellenada, strcat(RutaISalida, 'Composicion1_Rellenada.jpg')); %% Almacenar Imagen Composición 1 Rellenada
-% %% Composición Imagen 2
-% imwrite(Comp2NoRellenada, strcat(RutaISalida, 'Composicion2_NoRellenada.jpg')); %% Almacenar Imagen Composición 2 No Rellenada
-% imwrite(Comp2Rellenada, strcat(RutaISalida, 'Composicion2_Rellenada.jpg')); %% Almacenar Imagen Composición 2 Rellenada
-% %% Composición Imagen 3
-% imwrite(Comp3NoRellenada, strcat(RutaISalida, 'Composicion3_NoRellenada.jpg')); %% Almacenar Imagen Composición 3 No Rellenada
-% imwrite(Comp3Rellenada, strcat(RutaISalida, 'Composicion3_Rellenada.jpg')); %% Almacenar Imagen Composición 3 Rellenada
-% %% Composición Imagen 4
-% imwrite(Comp4NoRellenada, strcat(RutaISalida, 'Composicion4_NoRellenada.jpg')); %% Almacenar Imagen Composición 4 No Rellenada
-% imwrite(Comp4Rellenada, strcat(RutaISalida, 'Composicion4_Rellenada.jpg')); %% Almacenar Imagen Composición 4 Rellenada
-% %% Composición Imagen 5
-% imwrite(Comp5NoRellenada, strcat(RutaISalida, 'Composicion5_NoRellenada.jpg')); %% Almacenar Imagen Composición 5 No Rellenada
-% imwrite(Comp5Rellenada, strcat(RutaISalida, 'Composicion5_Rellenada.jpg')); %% Almacenar Imagen Composición 5 Rellenada
+imwrite(Sec1ZoomNoRellenada, strcat(RutaISalida, 'Secuencia1_ZoomNoRellenada.jpg')); %% Almacenar Imagen Secuencia 1 con Zoom No Rellenada
+imwrite(Sec1RotarNoRellenada, strcat(RutaISalida, 'Secuencia1_RotarNoRellenada.jpg')); %% Almacenar Imagen Secuencia 1 con Rotar No Rellenada
+imwrite(Sec1PerspectivaNoRellenada, strcat(RutaISalida, 'Secuencia1_PerspectivaNoRellenada.jpg')); %% Almacenar Imagen Secuencia 1 con Perspectiva No Rellenada
+imwrite(Sec1ZoomRellenada, strcat(RutaISalida, 'Secuencia1_ZoomRellenada.jpg')); %% Almacenar Imagen Secuencia 1 con Zoom Rellenada
+imwrite(Sec1RotarRellenada, strcat(RutaISalida, 'Secuencia1_RotarRellenada.jpg')); %% Almacenar Imagen Secuencia 1 con Rotar Rellenada
+imwrite(Sec1PerspectivaRellenada, strcat(RutaISalida, 'Secuencia1_PerspectivaRellenada.jpg')); %% Almacenar Imagen Secuencia 1 con Perspectiva Rellenada
+%% Secuencia Imagen 2
+imwrite(Sec2ZoomNoRellenada, strcat(RutaISalida, 'Secuencia2_ZoomNoRellenada.jpg')); %% Almacenar Imagen Secuencia 2 con Zoom No Rellenada
+imwrite(Sec2RotarNoRellenada, strcat(RutaISalida, 'Secuencia2_RotarNoRellenada.jpg')); %% Almacenar Imagen Secuencia 2 con Rotar No Rellenada
+imwrite(Sec2PerspectivaNoRellenada, strcat(RutaISalida, 'Secuencia2_PerspectivaNoRellenada.jpg')); %% Almacenar Imagen Secuencia 2 con Perspectiva No Rellenada
+imwrite(Sec2ZoomRellenada, strcat(RutaISalida, 'Secuencia2_ZoomRellenada.jpg')); %% Almacenar Imagen Secuencia 2 con Zoom Rellenada
+imwrite(Sec2RotarRellenada, strcat(RutaISalida, 'Secuencia2_RotarRellenada.jpg')); %% Almacenar Imagen Secuencia 2 con Rotar Rellenada
+imwrite(Sec2PerspectivaRellenada, strcat(RutaISalida, 'Secuencia2_PerspectivaRellenada.jpg')); %% Almacenar Imagen Secuencia 2 con Perspectiva Rellenada
+%% Secuencia Imagen 3
+imwrite(Sec3ZoomNoRellenada, strcat(RutaISalida, 'Secuencia3_ZoomNoRellenada.jpg')); %% Almacenar Imagen Secuencia 3 con Zoom No Rellenada
+imwrite(Sec3RotarNoRellenada, strcat(RutaISalida, 'Secuencia3_RotarNoRellenada.jpg')); %% Almacenar Imagen Secuencia 3 con Rotar No Rellenada
+imwrite(Sec3PerspectivaNoRellenada, strcat(RutaISalida, 'Secuencia3_PerspectivaNoRellenada.jpg')); %% Almacenar Imagen Secuencia 3 con Perspectiva No Rellenada
+imwrite(Sec3ZoomRellenada, strcat(RutaISalida, 'Secuencia3_ZoomRellenada.jpg')); %% Almacenar Imagen Secuencia 3 con Zoom Rellenada
+imwrite(Sec3RotarRellenada, strcat(RutaISalida, 'Secuencia3_RotarRellenada.jpg')); %% Almacenar Imagen Secuencia 3 con Rotar Rellenada
+imwrite(Sec3PerspectivaRellenada, strcat(RutaISalida, 'Secuencia3_PerspectivaRellenada.jpg')); %% Almacenar Imagen Secuencia 3 con Perspectiva Rellenada
+%% Secuencia Imagen 4
+imwrite(Sec4ZoomNoRellenada, strcat(RutaISalida, 'Secuencia4_ZoomNoRellenada.jpg')); %% Almacenar Imagen Secuencia 4 con Zoom No Rellenada
+imwrite(Sec4RotarNoRellenada, strcat(RutaISalida, 'Secuencia4_RotarNoRellenada.jpg')); %% Almacenar Imagen Secuencia 4 con Rotar No Rellenada
+imwrite(Sec4PerspectivaNoRellenada, strcat(RutaISalida, 'Secuencia4_PerspectivaNoRellenada.jpg')); %% Almacenar Imagen Secuencia 4 con Perspectiva No Rellenada
+imwrite(Sec4ZoomRellenada, strcat(RutaISalida, 'Secuencia4_ZoomRellenada.jpg')); %% Almacenar Imagen Secuencia 4 con Zoom Rellenada
+imwrite(Sec4RotarRellenada, strcat(RutaISalida, 'Secuencia4_RotarRellenada.jpg')); %% Almacenar Imagen Secuencia 4 con Rotar Rellenada
+imwrite(Sec4PerspectivaRellenada, strcat(RutaISalida, 'Secuencia4_PerspectivaRellenada.jpg')); %% Almacenar Imagen Secuencia 4 con Perspectiva Rellenada
+%% Secuencia Imagen 5
+imwrite(Sec5ZoomNoRellenada, strcat(RutaISalida, 'Secuencia5_ZoomNoRellenada.jpg')); %% Almacenar Imagen Secuencia 5 con Zoom No Rellenada
+imwrite(Sec5RotarNoRellenada, strcat(RutaISalida, 'Secuencia5_RotarNoRellenada.jpg')); %% Almacenar Imagen Secuencia 5 con Rotar No Rellenada
+imwrite(Sec5PerspectivaNoRellenada, strcat(RutaISalida, 'Secuencia5_PerspectivaNoRellenada.jpg')); %% Almacenar Imagen Secuencia 5 con Perspectiva No Rellenada
+imwrite(Sec5ZoomRellenada, strcat(RutaISalida, 'Secuencia5_ZoomRellenada.jpg')); %% Almacenar Imagen Secuencia 5 con Zoom Rellenada
+imwrite(Sec5RotarRellenada, strcat(RutaISalida, 'Secuencia5_RotarRellenada.jpg')); %% Almacenar Imagen Secuencia 5 con Rotar Rellenada
+imwrite(Sec5PerspectivaRellenada, strcat(RutaISalida, 'Secuencia5_PerspectivaRellenada.jpg')); %% Almacenar Imagen Secuencia 5 con Perspectiva Rellenada
+%% Composición de Transformaciones
+%% Composición Imagen 1
+imwrite(Comp1NoRellenada, strcat(RutaISalida, 'Composicion1_NoRellenada.jpg')); %% Almacenar Imagen Composición 1 No Rellenada
+imwrite(Comp1Rellenada, strcat(RutaISalida, 'Composicion1_Rellenada.jpg')); %% Almacenar Imagen Composición 1 Rellenada
+%% Composición Imagen 2
+imwrite(Comp2NoRellenada, strcat(RutaISalida, 'Composicion2_NoRellenada.jpg')); %% Almacenar Imagen Composición 2 No Rellenada
+imwrite(Comp2Rellenada, strcat(RutaISalida, 'Composicion2_Rellenada.jpg')); %% Almacenar Imagen Composición 2 Rellenada
+%% Composición Imagen 3
+imwrite(Comp3NoRellenada, strcat(RutaISalida, 'Composicion3_NoRellenada.jpg')); %% Almacenar Imagen Composición 3 No Rellenada
+imwrite(Comp3Rellenada, strcat(RutaISalida, 'Composicion3_Rellenada.jpg')); %% Almacenar Imagen Composición 3 Rellenada
+%% Composición Imagen 4
+imwrite(Comp4NoRellenada, strcat(RutaISalida, 'Composicion4_NoRellenada.jpg')); %% Almacenar Imagen Composición 4 No Rellenada
+imwrite(Comp4Rellenada, strcat(RutaISalida, 'Composicion4_Rellenada.jpg')); %% Almacenar Imagen Composición 4 Rellenada
+%% Composición Imagen 5
+imwrite(Comp5NoRellenada, strcat(RutaISalida, 'Composicion5_NoRellenada.jpg')); %% Almacenar Imagen Composición 5 No Rellenada
+imwrite(Comp5Rellenada, strcat(RutaISalida, 'Composicion5_Rellenada.jpg')); %% Almacenar Imagen Composición 5 Rellenada
 
 
 
