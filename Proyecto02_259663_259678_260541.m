@@ -15,7 +15,7 @@ close all; %% Cerrar ventanas abiertas
 clc; %% Limpiar consola
 
 RutaIEntrada = 'C:\(rutaProyecto)\entradas\'; %% Ruta de entrada (lectura) de las imágenes
-%RutaISalida = 'C:\(rutaProyecto)\salidas\'; %% Ruta de salida (escritura) de las imágenes
+RutaISalida = 'C:\(rutaProyecto)\salidas\'; %% Ruta de salida (escritura) de las imágenes
 
 I1 = imread(strcat(RutaIEntrada, 'Imagen1.jpg')); %% Imagen 1
 I2 = imread(strcat(RutaIEntrada, 'Imagen2.jpg')); %% Imagen 2
